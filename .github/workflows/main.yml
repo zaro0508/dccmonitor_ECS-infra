@@ -25,32 +25,46 @@ jobs:
       - name: Run unit tests
         run: python -m pytest tests/ -s -v
 
-  synth-test-dev:
+  synth-test-1kd-dev:
     needs: tests
     uses: "./.github/workflows/synth-test.yml"
     with:
-      CONTEXT: dev
+      CONTEXT: 1kd-dev
 
-  synth-test-prod:
+  synth-test-pec-dev:
     needs: tests
     uses: "./.github/workflows/synth-test.yml"
     with:
-      CONTEXT: prod
+      CONTEXT: pec-dev
+
+  synth-test-1kd-prod:
+    needs: tests
+    uses: "./.github/workflows/synth-test.yml"
+    with:
+      CONTEXT: 1kd-prod
+
+  synth-test-pec-prod:
+    needs: tests
+    uses: "./.github/workflows/synth-test.yml"
+    with:
+      CONTEXT: pec-prod
 
   cdk-deploy-dev:
     if: ${{github.ref == 'refs/heads/dev'}}
-    needs: [tests, synth-test-dev]
+    needs: [tests, synth-test-1kd-dev, synth-test-pec-dev]
     uses: "./.github/workflows/aws-deploy.yml"
     secrets: inherit
     with:
-      CONTEXT: dev
-      ROLE_TO_ASSUME: arn:aws:iam::<dev-account-number>:role/<dev-role-name>
+      CONTEXT_1KD: 1kd-dev
+      CONTEXT_PEC: pec-dev
+      ROLE_TO_ASSUME: arn:aws:iam::634210816736:role/sagebase-github-oidc-sage-ProviderRoledccmonitorEC-XDCFYUHLM75G
 
   cdk-deploy-prod:
     if: ${{github.ref == 'refs/heads/prod'}}
-    needs: [tests, synth-test-prod]
+    needs: [tests, synth-test-1kd-prod, synth-test-pec-prod]
     uses: "./.github/workflows/aws-deploy.yml"
     secrets: inherit
     with:
-      CONTEXT: prod
-      ROLE_TO_ASSUME: arn:aws:iam::<production-account-number>:role/<production-role-name>
+      CONTEXT_1KD: 1kd-prod
+      CONTEXT_PEC: pec-prod
+      ROLE_TO_ASSUME: arn:aws:iam::593604776210:role/sagebase-github-oidc-sage-ProviderRoledccmonitorEC-14DMJY7NRWMTG
