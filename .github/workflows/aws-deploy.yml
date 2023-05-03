@@ -12,6 +12,9 @@ on:
       CONTEXT_PEC:
         required: true
         type: string
+      CONTEXT_AMP:
+        required: true
+        type: string
       ROLE_TO_ASSUME:
         required: true
         type: string
@@ -50,3 +53,11 @@ jobs:
           cdk_subcommand: 'deploy'
           cdk_args: '--require-approval never --context env=${{ inputs.CONTEXT_PEC }} --progress events --debug'
           actions_comment: false
+
+       - name: cdk deploy amp-ad
+        uses: youyo/aws-cdk-github-actions@v2
+        with:
+          cdk_subcommand: 'deploy'
+          cdk_args: '--require-approval never --context env=${{ inputs.CONTEXT_AMP }} --progress events --debug'
+          actions_comment: false
+          

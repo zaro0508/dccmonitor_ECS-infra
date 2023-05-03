@@ -37,6 +37,12 @@ jobs:
     with:
       CONTEXT: pec-dev
 
+  synth-test-amp-ad-dev:
+    needs: tests
+    uses: "./.github/workflows/synth-test.yml"
+    with:
+      CONTEXT: amp-ad-dev
+
   synth-test-1kd-prod:
     needs: tests
     uses: "./.github/workflows/synth-test.yml"
@@ -49,22 +55,30 @@ jobs:
     with:
       CONTEXT: pec-prod
 
+  synth-test-amp-ad-prod:
+    needs: tests
+    uses: "./.github/workflows/synth-test.yml"
+    with:
+      CONTEXT: amp-ad-prod
+
   cdk-deploy-dev:
     if: ${{github.ref == 'refs/heads/dev'}}
-    needs: [tests, synth-test-1kd-dev, synth-test-pec-dev]
+    needs: [tests, synth-test-1kd-dev, synth-test-pec-dev, synth-test-amp-ad-dev]
     uses: "./.github/workflows/aws-deploy.yml"
     secrets: inherit
     with:
       CONTEXT_1KD: 1kd-dev
       CONTEXT_PEC: pec-dev
+      CONTEXT_AMP: amp-ad-dev
       ROLE_TO_ASSUME: arn:aws:iam::634210816736:role/sagebase-github-oidc-sage-ProviderRoledccmonitorEC-XDCFYUHLM75G
 
   cdk-deploy-prod:
     if: ${{github.ref == 'refs/heads/prod'}}
-    needs: [tests, synth-test-1kd-prod, synth-test-pec-prod]
+    needs: [tests, synth-test-1kd-prod, synth-test-pec-prod, synth-test-amp-ad-prod]
     uses: "./.github/workflows/aws-deploy.yml"
     secrets: inherit
     with:
       CONTEXT_1KD: 1kd-prod
       CONTEXT_PEC: pec-prod
+      CONTEXT_AMP: amp-ad-prod
       ROLE_TO_ASSUME: arn:aws:iam::593604776210:role/sagebase-github-oidc-sage-ProviderRoledccmonitorEC-14DMJY7NRWMTG

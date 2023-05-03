@@ -62,6 +62,22 @@
       "VPC_CIDR": "172.43.0.0/24",
       "ACM_CERT_ARN": "arn:aws:acm:us-east-1:634210816736:certificate/d8a14c40-570c-4901-be4b-55110f817cc9"
     },
+    "amp-ad-dev": {
+      "IMAGE_PATH_AND_TAG": "ghcr.io/sage-bionetworks/dccmonitor_ecs:v0.0.8",
+      "AWS_DEFAULT_REGION": "us-east-1",
+      "PORT": "3838",
+      "CONTAINER_ENV": {
+        "R_CONFIG_ACTIVE": "amp-ad",
+        "client_name": "dccmonitor"
+      },
+      "TAGS": {
+        "CostCenter": "No Program / 000000",
+        "OwnerEmail": "abby.vanderlinden@sagebase.org"
+      },
+      "STACK_NAME_PREFIX": "dccmonitor-amp-ad",
+      "VPC_CIDR": "172.46.0.0/24",
+      "ACM_CERT_ARN": "arn:aws:acm:us-east-1:634210816736:certificate/d8a14c40-570c-4901-be4b-55110f817cc9"
+    },
     "1kd-prod": {
       "IMAGE_PATH_AND_TAG": "ghcr.io/sage-bionetworks/dccmonitor_ecs:v0.0.8",
       "AWS_DEFAULT_REGION": "us-east-1",
@@ -92,6 +108,22 @@
       },
       "STACK_NAME_PREFIX": "dccmonitor-pec",
       "VPC_CIDR": "172.44.0.0/24",
+      "ACM_CERT_ARN": "arn:aws:acm:us-east-1:593604776210:certificate/f0962420-b2e1-44ba-a7f5-fb2826657643"
+    },
+    "amp-ad-prod": {
+      "IMAGE_PATH_AND_TAG": "ghcr.io/sage-bionetworks/dccmonitor_ecs:v0.0.8",
+      "AWS_DEFAULT_REGION": "us-east-1",
+      "PORT": "3838",
+      "CONTAINER_ENV": {
+        "R_CONFIG_ACTIVE": "amp-ad",
+        "client_name": "dccmonitor"
+      },
+      "TAGS": {
+        "CostCenter": "No Program / 000000",
+        "OwnerEmail": "abby.vanderlinden@sagebase.org"
+      },
+      "STACK_NAME_PREFIX": "dccmonitor-pec",
+      "VPC_CIDR": "172.47.0.0/24",
       "ACM_CERT_ARN": "arn:aws:acm:us-east-1:593604776210:certificate/f0962420-b2e1-44ba-a7f5-fb2826657643"
     }
   }
