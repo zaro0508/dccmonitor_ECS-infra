@@ -122,7 +122,7 @@
         "CostCenter": "AMP-AD DCC / 101500",
         "OwnerEmail": "abby.vanderlinden@sagebase.org"
       },
-      "STACK_NAME_PREFIX": "dccmonitor-pec",
+      "STACK_NAME_PREFIX": "dccmonitor-amp-ad",
       "VPC_CIDR": "172.47.0.0/24",
       "ACM_CERT_ARN": "arn:aws:acm:us-east-1:593604776210:certificate/f0962420-b2e1-44ba-a7f5-fb2826657643"
     }
