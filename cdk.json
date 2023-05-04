@@ -71,7 +71,7 @@
         "client_name": "dccmonitor"
       },
       "TAGS": {
-        "CostCenter": "No Program / 000000",
+        "CostCenter": "AMP-AD DCC / 101500",
         "OwnerEmail": "abby.vanderlinden@sagebase.org"
       },
       "STACK_NAME_PREFIX": "dccmonitor-amp-ad",
@@ -119,7 +119,7 @@
         "client_name": "dccmonitor"
       },
       "TAGS": {
-        "CostCenter": "No Program / 000000",
+        "CostCenter": "AMP-AD DCC / 101500",
         "OwnerEmail": "abby.vanderlinden@sagebase.org"
       },
       "STACK_NAME_PREFIX": "dccmonitor-pec",
