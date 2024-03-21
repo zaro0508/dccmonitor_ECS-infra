@@ -56,7 +56,7 @@
       },
       "TAGS": {
         "CostCenter": "UMass PECDCC / 106000",
-        "OwnerEmail": "larsson.omberg@sagebase.org"
+        "OwnerEmail": "anna.greenwood@sagebase.org"
       },
       "STACK_NAME_PREFIX": "dccmonitor-pec",
       "VPC_CIDR": "172.43.0.0/24",
